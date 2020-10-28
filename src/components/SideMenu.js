@@ -1,23 +1,27 @@
-import React from "react";
-import { makeStyles, withStyles } from "@material-ui/core";
+// import React from "react";
+// import { makeStyles } from "@material-ui/core";
 
 // const useStyles = makeStyles({
-//   sideMenu: {
+//   SideMenu: {
 //     display: "flex",
 //     flexDirection: "column",
-//     position: "absolute",
 //     left: "0px",
 //     width: "300px",
 //     height: "100%",
-//     backgroundColor: "grey",
+//     backgroundColor: "lightblue",
+//     position: "absolute",
 //   },
 // });
+
 // function SideMenu() {
 //   const classes = useStyles();
-//   return <div className={classes.sideMenu}>LeftSide Menu</div>;
+//   return <div className={classes.SideMenu}>Left Side Menu</div>;
 // }
 
 // export default SideMenu;
+
+import React from "react";
+import { withStyles } from "@material-ui/core";
 
 const styles = {
   sideMenu: {
@@ -26,7 +30,7 @@ const styles = {
     left: "0px",
     width: "300px",
     height: "100%",
-    backgroundColor: "lightblue",
+    backgroundColor: "lightgreen",
     position: "absolute",
   },
 };

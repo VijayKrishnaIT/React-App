@@ -1,66 +1,89 @@
-import {
-  AppBar,
-  Grid,
-  Toolbar,
-  InputBase,
-  IconButton,
-  Badge,
-} from "@material-ui/core";
 import React from "react";
-import SearchIcon from "@material-ui/icons/Search";
+import AppBar from "@material-ui/core/AppBar";
+import { Toolbar, Grid, InputBase, IconButton, Badge } from "@material-ui/core";
+import NotificationsIcon from "@material-ui/icons/Notifications";
 import ChatIcon from "@material-ui/icons/Chat";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
-import NotificationsNoneIcon from "@material-ui/icons/NotificationsNone";
 import { makeStyles } from "@material-ui/core";
+import SearchIcon from "@material-ui/icons/Search";
 
-const useStyles = makeStyles({
+// const useStyles = makeStyles({
+//   root: {
+//     backgroundColor: "#fff",
+//   },
+//   searchItem: {
+//     width: "300px",
+//     fontSize: "0.8rem",
+//     padding: "0px 10px",
+//     opacity: "0.6px",
+//     "&:hover": {
+//       backgroundColor: "lightgrey",
+//     },
+//     "& .MuiSvgIcon-root ": {
+//       marginRight: "30px",
+//     },
+//     btnRoot: {
+//       backgroundColor: "green",
+//     },
+//     btnLabel: {
+//       backgroundColor: "red",
+//     },
+//   },
+// });
+
+const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: "#fff",
   },
   searchItem: {
+    width: "300px",
     fontSize: "0.8rem",
-    padding: "0px 10px",
-    opacity: "0.6",
+    padding: `0px ${theme.spacing(1)}px`,
+    opacity: "0.6px",
     "&:hover": {
       backgroundColor: "lightgrey",
     },
-    "&.MuiSvgIcon-fontSizeSmall": {
-      marginRight: "30px",
+    "& .MuiSvgIcon-root ": {
+      marginRight: `${theme.spacing(4)}px`,
     },
     btnRoot: {
       backgroundColor: "green",
     },
-    btnlabel: {
-      backgroundColor: "pink",
+    btnLabel: {
+      backgroundColor: "red",
     },
   },
-});
+}));
 
 function Header() {
   const classes = useStyles();
   return (
-    <AppBar className={classes.root} position="static">
+    <AppBar position="static" className={classes.root}>
       <Toolbar>
-        <Grid Container alignItems="center">
+        <Grid container alignItems="center">
           <Grid>
             <InputBase
-              startAdornment={<SearchIcon />}
+              startAdornment={<SearchIcon fontSize="small" />}
+              placeholder="Search Here"
               className={classes.searchItem}
             />
           </Grid>
-          <Grid item sm={true}>
+          <Grid item sm={true}></Grid>
+          <Grid>
             <IconButton
-              classes={{ root: classes.btnRoot, label: classes.btnlabel }}
+              className={{ root: classes.btnRoot, label: classes.btnLabel }}
             >
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsNoneIcon />
+              <Badge badgeContent={4} color="primary">
+                <NotificationsIcon />
               </Badge>
             </IconButton>
+
             <IconButton>
-              <badgeContent color="primary">
+              <Badge badgeContent={10} color="default">
                 <ChatIcon />
-              </badgeContent>
+              </Badge>
             </IconButton>
+
             <IconButton>
               <PowerSettingsNewIcon />
             </IconButton>
