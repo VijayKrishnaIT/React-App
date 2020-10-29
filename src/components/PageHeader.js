@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(4),
     "& .MuiTypography-subtitle2": {
       opacity: 0.6,
+      marginTop: theme.spacing(1.5),
     },
   },
 }));
