@@ -1,97 +1,63 @@
-import React from "react";
-import AppBar from "@material-ui/core/AppBar";
-import { Toolbar, Grid, InputBase, IconButton, Badge } from "@material-ui/core";
-import NotificationsIcon from "@material-ui/icons/Notifications";
-import ChatIcon from "@material-ui/icons/Chat";
-import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
-import { makeStyles } from "@material-ui/core";
-import SearchIcon from "@material-ui/icons/Search";
+import React from 'react'
+import { AppBar, Toolbar, Grid, InputBase, IconButton, Badge, makeStyles } from '@material-ui/core'
+import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
+import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
+import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
+import SearchIcon from '@material-ui/icons/Search';
 
-// const useStyles = makeStyles({
-//   root: {
-//     backgroundColor: "#fff",
-//   },
-//   searchItem: {
-//     width: "300px",
-//     fontSize: "0.8rem",
-//     padding: "0px 10px",
-//     opacity: "0.6px",
-//     "&:hover": {
-//       backgroundColor: "lightgrey",
-//     },
-//     "& .MuiSvgIcon-root ": {
-//       marginRight: "30px",
-//     },
-//     btnRoot: {
-//       backgroundColor: "green",
-//     },
-//     btnLabel: {
-//       backgroundColor: "red",
-//     },
-//   },
-// });
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: "#fff",
-  },
-  searchItem: {
-    width: "300px",
-    fontSize: "0.8rem",
-    padding: `0px ${theme.spacing(1)}px`,
-    opacity: "0.6px",
-    "&:hover": {
-      backgroundColor: "lightgrey",
+const useStyles = makeStyles(theme => ({
+    root: {
+        backgroundColor: '#fff',
+        
     },
-    "& .MuiSvgIcon-root ": {
-      marginRight: `${theme.spacing(4)}px`,
-    },
-    btnRoot: {
-      backgroundColor: "green",
-    },
-    btnLabel: {
-      backgroundColor: "red",
-    },
-  },
-}));
+    searchInput: {
+        opacity: '0.6',
+        padding: `0px ${theme.spacing(1)}px`,
+        fontSize: '0.8rem',
+        '&:hover': {
+            backgroundColor: '#f2f2f2'
+        },
+        '& .MuiSvgIcon-root': {
+            marginRight: theme.spacing(1)
+        }
+    }
+}))
 
-function Header() {
-  const classes = useStyles();
-  return (
-    <AppBar position="static" className={classes.root}>
-      <Toolbar>
-        <Grid container alignItems="center">
-          <Grid>
-            <InputBase
-              startAdornment={<SearchIcon fontSize="small" />}
-              placeholder="Search Here"
-              className={classes.searchItem}
-            />
-          </Grid>
-          <Grid item sm={true}></Grid>
-          <Grid>
-            <IconButton
-              className={{ root: classes.btnRoot, label: classes.btnLabel }}
-            >
-              <Badge badgeContent={4} color="primary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
+export default function Header() {
 
-            <IconButton>
-              <Badge badgeContent={10} color="default">
-                <ChatIcon />
-              </Badge>
-            </IconButton>
+    const classes = useStyles();
 
-            <IconButton>
-              <PowerSettingsNewIcon />
-            </IconButton>
-          </Grid>
-        </Grid>
-      </Toolbar>
-    </AppBar>
-  );
+    return (
+        <AppBar position="static" className={classes.root}>
+            <Toolbar>
+                <Grid container
+                    alignItems="center">
+                    <Grid item>
+                        <InputBase
+                            placeholder="Search topics"
+                            className={classes.searchInput}
+                            startAdornment={<SearchIcon fontSize="small" />}
+                        />
+                    </Grid>
+                    <Grid item sm></Grid>
+                    <Grid item>
+                        <IconButton>
+                            <Badge badgeContent={4} color="secondary">
+                                <NotificationsNoneIcon fontSize="small" />
+                            </Badge>
+                        </IconButton>
+                        <IconButton>
+                            <Badge badgeContent={3} color="primary">
+                                <ChatBubbleOutlineIcon fontSize="small" />
+                            </Badge>
+                        </IconButton>
+                        <IconButton>
+                            <PowerSettingsNewIcon fontSize="small" />
+                        </IconButton>
+                    </Grid>
+                </Grid>
+            </Toolbar>
+        </AppBar>
+    )
 }
-
-export default Header;

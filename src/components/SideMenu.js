@@ -1,43 +1,27 @@
-// import React from "react";
-// import { makeStyles } from "@material-ui/core";
+import React from 'react'
+import { makeStyles, withStyles } from "@material-ui/core";
 
-// const useStyles = makeStyles({
-//   SideMenu: {
-//     display: "flex",
-//     flexDirection: "column",
-//     left: "0px",
-//     width: "300px",
-//     height: "100%",
-//     backgroundColor: "lightblue",
-//     position: "absolute",
-//   },
-// });
+// withStyles & makeStyles
 
-// function SideMenu() {
-//   const classes = useStyles();
-//   return <div className={classes.SideMenu}>Left Side Menu</div>;
-// }
-
-// export default SideMenu;
-
-import React from "react";
-import { withStyles } from "@material-ui/core";
-
-const styles = {
-  sideMenu: {
-    display: "flex",
-    flexDirection: "column",
-    left: "0px",
-    width: "300px",
-    height: "100%",
-    backgroundColor: "lightgreen",
-    position: "absolute",
-  },
-};
+const style = {
+    sideMenu: {
+        display: 'flex',
+        flexDirection: 'column',
+        position: 'absolute',
+        left: '0px',
+        width: '320px',
+        height: '100%',
+        backgroundColor: '#253053'
+    }
+}
 
 const SideMenu = (props) => {
-  const { classes } = props;
-  return <div className={classes.sideMenu}>Left Side Menu</div>;
-};
+    const { classes } = props;
+    return (
+        <div className={classes.sideMenu}>
 
-export default withStyles(styles)(SideMenu);
+        </div>
+    )
+}
+
+export default withStyles(style)(SideMenu);
